@@ -18,7 +18,12 @@
         "type": "git",
         "url": "git+https://github.com/BaReinhard/typed-react-component.git"
     },
-    "keywords": ["react", "npm", "modules"],
+    "keywords": [
+        "react",
+        "npm",
+        "modules",
+        "typed.js"
+    ],
     "author": "Brett Reinhard <brett@reinhards.us> (http://brettreinhard.com)",
     "license": "MIT",
     "bugs": {
