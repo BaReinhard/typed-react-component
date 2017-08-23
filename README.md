@@ -39,7 +39,7 @@ export default const UsingTypeComponent = () =>{
 ```
 
 # Example Output
-![TypedJS](https://github.com/BaReinhard/gitmatch.me-angular4/blob/master/typed.js.gif?raw=true)
+![TypedJS](https://lh3.googleusercontent.com/dijYpvf-Er67D-8cH-KuB1OKyvVPA5ZOiPC4mZn19yxNkS4-o6hJ5MSP6nMAs5yVW6t5tJy5J52On803PSieKV2EEsu3RESqO4sc1UI_xaJpl4Ppqn72BXRMdJt7prgB1EYXwO-pWHnoZhRnwop-W-dUZJuSXiGiKr9QxEezdQBcZlOB8K_3etKjyhfMNrVDtMSiSJG4hS1W1vf-3V_ExYzs9p4E3RkH9NvJc0x3JGOuB6d0aOrGl1_d24XP_pogJeGwRqzUDw0Zp0Q-kCB9Khuq4tv8s_W6_UKlPKMuGKRsffP_3jn1pj3gAvn67U9YaPt6-jPlNGYwDvglXdV-lGCpPIjTEeGFTWQbBZPaBfdaLnO3OaPE72JWA6HqTPPKl_-MTMejLwrcv01-faDkxRxS9ukP9VpYTMF_GxSKHqwvFd77CvQ9lSQu__tzRlauMryF0EKfv1OlSgrDLDphAOSXgI66T21ZtgqBC6EARzbokaKtVurQeFPO1rr1SdqRwkE97_43y204t7qCWgMLCjlPWge7yDAV2jRaqXVtJRuu_e-vjcyEyb5-iFrlBN-dAER4MrFkCMfUL6Zl91qDMOzJx_4A3LYSylXhxONe69lOaC-U7v6O=w600-h375-no)
 
 # API
 
