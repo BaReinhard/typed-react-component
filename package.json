@@ -1,6 +1,6 @@
 {
     "name": "typed-react-component",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A simple react component based loosely off of Typed.js",
     "main": "index.js",
     "directories": {
@@ -18,12 +18,7 @@
         "type": "git",
         "url": "git+https://github.com/BaReinhard/typed-react-component.git"
     },
-    "keywords": [
-        "react",
-        "npm",
-        "modules",
-        "typed.js"
-    ],
+    "keywords": ["react", "npm", "modules", "typed.js"],
     "author": "Brett Reinhard <brett@reinhards.us> (http://brettreinhard.com)",
     "license": "MIT",
     "bugs": {

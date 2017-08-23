@@ -104,7 +104,7 @@
                             displayedType: _this.state.typings[_this.state.index].substring(0, _this.state.displayedType.length - 1)
                         });
                         _this.beginType();
-                    }, _this.props.typeSpeed / 2);
+                    }, _this.props.backTypeSpeed || _this.props.typeSpeed / 2);
                 } else if (_this.state.displayedType.length !== _this.state.typings[_this.state.index].length && _this.state.typeForward) {
                     setTimeout(function () {
                         _this.setState({
@@ -115,7 +115,7 @@
                             if (!_this.props.loop && _this.state.index === _this.state.maxIndex) {} else {
                                 setTimeout(function () {
                                     _this.beginType();
-                                }, _this.props.delay);
+                                }, _this.state.delay[_this.state.index]);
                             }
                         } else {
                             _this.beginType();
@@ -131,6 +131,26 @@
                 }
             };
 
+            var delayArray = [];
+            if (Array.isArray(_this.props.delay) && _this.props.delay.length < props.typings.length) {
+                delayArray = _this.props.delay;
+                var delayLength = _this.props.delay.length;
+                if (props.delay.length === 1) {
+                    delayArray[props.typings.length] = props.delay[0];
+                    delayArray.fill(props.delay[0], delayLength);
+                } else {
+                    delayArray[props.typings.length] = 1000;
+                    delayArray.fill(1000, delayLength);
+                }
+            } else if (Array.isArray(_this.props.delay) && _this.props.delay.length > props.typings.length) {
+                delayArray = _this.props.delay;
+                delayArray.slice(props.typings.length - 1, _this.props.delay.length - 1);
+            } else if (Array.isArray(_this.props.delay) && _this.props.delay.length === props.typings.length) {
+                delayArray = _this.props.delay;
+            } else {
+                delayArray[props.typings.length - 1] = props.delay;
+                delayArray.fill(props.delay, 0, props.typings.length - 1);
+            }
             _this.state = {
                 typings: props.typings,
                 maxIndex: props.typings.length - 1,
@@ -138,6 +158,7 @@
                 displayedType: '',
                 blinkerStyle: { opacity: 0 },
                 typeForward: true,
+                delay: delayArray,
                 intervalBlinker: setInterval(function () {
                     _this.setState({
                         blinkerStyle: { opacity: 1 - _this.state.blinkerStyle.opacity }
@@ -150,9 +171,30 @@
         _createClass(TypedJS, [{
             key: 'componentWillReceiveProps',
             value: function componentWillReceiveProps(nextProps, nextState) {
+                var delayArray = [];
+                if (Array.isArray(nextProps.delay) && nextProps.delay.length < nextProps.typings.length) {
+                    delayArray = nextProps.delay;
+                    var delayLength = nextProps.delay.length;
+                    if (nextProps.delay.length === 1) {
+                        delayArray[nextProps.typings.length] = nextProps.delay[0];
+                        delayArray.fill(nextProps.delay[0], delayLength);
+                    } else {
+                        delayArray[nextProps.typings.length] = 1000;
+                        delayArray.fill(1000, delayLength);
+                    }
+                } else if (Array.isArray(nextProps.delay) && nextProps.delay.length > nextProps.typings.length) {
+                    delayArray = nextProps.delay;
+                    delayArray.slice(nextProps.typings.length - 1, nextProps.delay.length - 1);
+                } else if (Array.isArray(nextProps.delay) && nextProps.delay.length === nextProps.typings.length) {
+                    delayArray = nextProps.delay;
+                } else {
+                    delayArray[nextProps.typings.length - 1] = nextProps.delay;
+                    delayArray.fill(nextProps.delay, 0, nextProps.typings.length - 1);
+                }
                 this.setState({
                     typings: nextProps.typings,
                     maxIndex: nextProps.typings.length - 1,
+                    delay: delayArray,
                     blinkerStyle: { opacity: 0 }
                 });
             }
@@ -177,10 +219,12 @@
                     'span',
                     { style: _extends({}, this.props.style) },
                     this.state.displayedType,
+                    this.props.lineEnding,
                     _react2.default.createElement(
                         'span',
-                        { style: this.state.blinkerStyle },
-                        ' |'
+                        { style: Object.assign({}, this.state.blinkerStyle, this.props.blinkerStyle) },
+                        ' ',
+                        this.props.blinkerCharacter || '|'
                     )
                 );
             }
@@ -198,6 +242,8 @@
         loop: _propTypes2.default.bool,
         typings: _propTypes2.default.array,
         blinkerDelay: _propTypes2.default.number,
-        startDelay: _propTypes2.default.number
+        startDelay: _propTypes2.default.oneOfType([_propTypes2.default.array, _propTypes2.default.number]),
+        backTypeSpeed: _propTypes2.default.number,
+        blinkerCharacter: _propTypes2.default.string
     };
 });
