@@ -104,6 +104,7 @@ export default class TypedJS extends React.Component {
                 });
                 if (this.state.displayedType.length === this.state.typings[this.state.index].length) {
                     if (!this.props.loop && this.state.index === this.state.maxIndex) {
+                        this.props.onComplete && this.props.onComplete();
                     } else {
                         setTimeout(() => {
                             this.beginType();
@@ -144,4 +145,5 @@ TypedJS.propTypes = {
     startDelay: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
     backTypeSpeed: PropTypes.number,
     blinkerCharacter: PropTypes.string,
+    onComplete: PropTypes.func,
 };

@@ -75,5 +75,7 @@ blinkerStyle={
 * This is a character or string such as '|', '©', 'ç', 'C', 'harrypotter', etc..., which will be used as a blinking character, which is typically seen in CLI's when typing. By default is it the pipe character (|).
 
 ## blinkerDelay (integer) 
-*This is the delay at which the blinkerCharacter will blink, the lower blinkerDelay is the quicker the blinking will appear, the larger the amount the slower the blinker will blink. The default for this value is 200 if none is provided.
+* This is the delay at which the blinkerCharacter will blink, the lower blinkerDelay is the quicker the blinking will appear, the larger the amount the slower the blinker will blink. The default for this value is 200 if none is provided.
 
+## onComplete (function)
+* onComplete is a callback function which is executed only when loop is set to false, and will execute once all the typings have been typed out.
